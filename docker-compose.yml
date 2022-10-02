@@ -1,0 +1,19 @@
+version: '3.5'
+
+services:
+  postgres:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_USER: dvdrental
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dvdrental
+      TZ: "Asia/Tokyo"
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: pg_isready -U dvdrental -d dvdrental
+      timeout: 45s
+      interval: 10s
+      retries: 10
