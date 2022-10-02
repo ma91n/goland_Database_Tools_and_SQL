@@ -1,3 +1,3 @@
 #!/bin/sh
 
-pg_restore -U ${POSTGRES_USER} -d ${POSTGRES_DB} dvdrental.tar
+pg_restore -U dvdrental -d dvdrental dvdrental.tar

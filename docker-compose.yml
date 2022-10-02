@@ -17,3 +17,12 @@ services:
       timeout: 45s
       interval: 10s
       retries: 10
+  prod-postgres:
+    image: postgres:13.7
+    environment:
+      POSTGRES_USER: prod
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: prod
+      TZ: "Asia/Tokyo"
+    ports:
+      - "15432:5432"
